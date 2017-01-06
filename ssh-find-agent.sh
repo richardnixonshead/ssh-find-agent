@@ -44,7 +44,7 @@ find_all_gpg_agent_sockets() {
 }
 
 find_all_gnome_keyring_agent_sockets() {
-	_GNOME_KEYRING_AGENT_SOCKETS=`find /tmp/ -type s -name ssh 2> /dev/null | grep '/tmp/keyring-.*/ssh$'`
+	_GNOME_KEYRING_AGENT_SOCKETS=`find /tmp/ /run/user/${UID}/keyring -type s -name ssh 2> /dev/null | egrep '/ssh$'`
 	_debug_print "$_GNOME_KEYRING_AGENT_SOCKETS"
 }
 
